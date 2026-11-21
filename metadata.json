@@ -1,0 +1,8 @@
+{
+  "name": "SUDOKU NEXUS",
+  "description": "Think Different. Play Smarter. Next-generation Sudoku gaming platform with smart hints, technique coach, daily challenges, and progression.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

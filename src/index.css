@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --nx-bg: #F5F8FF;
+    --nx-surface: #FFFFFF;
+    --nx-surface-alt: #EDF3FF;
+    --nx-border: #D9E4F7;
+    --nx-text: #18233D;
+    --nx-text-muted: #5C6C8F;
+    --nx-primary: #087BFF;
+    --nx-secondary: #00C8FF;
+    --nx-navy: #17264A;
+    --nx-highlight: #DCEEFF;
+    --nx-highlight-strong: #B8DCFF;
+    --nx-success: #16C784;
+    --nx-error: #FF5263;
+  }
+
+  .dark {
+    --nx-bg: #0A1120;
+    --nx-surface: #111C33;
+    --nx-surface-alt: #17264A;
+    --nx-border: #233761;
+    --nx-text: #F1F5FF;
+    --nx-text-muted: #93A7CE;
+    --nx-primary: #2B8FFF;
+    --nx-secondary: #00C8FF;
+    --nx-navy: #0D1730;
+    --nx-highlight: #19315E;
+    --nx-highlight-strong: #234785;
+    --nx-success: #16C784;
+    --nx-error: #FF5263;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--nx-bg);
+    color: var(--nx-text);
+    overflow-x: hidden;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes cellPop {
+  0% {
+    transform: scale(0.84);
+    opacity: 0.4;
+  }
+  70% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cellShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.04);
+    opacity: 0;
+  }
+}
+
+.animate-cell-pop {
+  animation: cellPop 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-cell-shake {
+  animation: cellShake 220ms ease-in-out;
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
